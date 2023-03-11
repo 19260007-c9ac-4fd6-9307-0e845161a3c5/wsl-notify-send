@@ -5,7 +5,9 @@ import (
 	"log"
 
 	"github.com/spf13/cobra"
-	toast "gopkg.in/toast.v1"
+	
+	"github.com/go-toast/toast"
+
 )
 
 // Overridden via ldflags
