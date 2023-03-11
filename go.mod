@@ -4,6 +4,7 @@ go 1.16
 
 require (
 	github.com/deadcheat/goblet v1.3.1 // indirect
+	github.com/go-toast/toast v0.0.0-20190211030409-01e6764cf0a4 // indirect
 	github.com/kyoh86/richgo v0.3.6 // indirect
 	github.com/kyoh86/xdg v1.2.0 // indirect
 	github.com/mattn/go-isatty v0.0.12 // indirect
