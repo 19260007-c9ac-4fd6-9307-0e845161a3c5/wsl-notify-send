@@ -33,6 +33,6 @@ jobs:
           draft: false
           prerelease: false
           artifacts: |
-            main.exe
+            wsl-notify-send.exe
           artifactContentType: application/octet-stream
           token: ${{ secrets.GITHUB_TOKEN }}
