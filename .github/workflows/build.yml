@@ -27,8 +27,8 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1
         with:
-          # tag: v0.${{ steps.clone_repo.outputs.EMACS_PKG_VERSION }}
-          # name: emacs_0.${{ steps.clone_repo.outputs.EMACS_PKG_VERSION }}
+          tag: v0.1
+          name: wsl_notify_send_0.1
           draft: false
           prerelease: false
           artifactErrorsFailBuild: true
