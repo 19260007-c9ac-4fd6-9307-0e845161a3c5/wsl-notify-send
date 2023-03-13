@@ -5,9 +5,8 @@ import (
 	"log"
 
 	"github.com/spf13/cobra"
-	
-	"github.com/go-toast/toast"
 
+	"github.com/go-toast/toast"
 )
 
 // Overridden via ldflags

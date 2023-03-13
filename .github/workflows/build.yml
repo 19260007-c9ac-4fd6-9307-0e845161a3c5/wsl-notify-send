@@ -18,27 +18,29 @@ jobs:
       - name: Build
         run: GOOS=windows GOARCH=amd64 go build -ldflags -H=windowsgui -o wsl-notify-send.exe main.go
       - name: Upload binaries
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: wsl-notify-send
           path: wsl-notify-send.exe
+          if-no-files-found: error
 
-      - name: Upload the artifacts
-        uses: skx/github-action-publish-binaries@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: 'wsl-notify-send.exe'
-      # # Create release
-      # - name: Create Release
+     - name: Create Release
+       id: create_release
+       uses: ncipollo/release-action@v1
+       with:
+         # tag: v0.${{ steps.clone_repo.outputs.EMACS_PKG_VERSION }}
+         # name: emacs_0.${{ steps.clone_repo.outputs.EMACS_PKG_VERSION }}
+         draft: false
+         prerelease: false
+         artifactErrorsFailBuild: true
+         artifacts: |
+           wsl-notify-send.exe
+           token: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Upload the artifacts
       #   id: create_release
-      #   uses: ncipollo/release-action@v1
+      #   uses: skx/github-action-publish-binaries@master
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #   with:
-      #     tag: v1.0.0
-      #     name: Release v1.0.0
-      #     draft: false
-      #     prerelease: false
-      #     artifacts: |
-      #       wsl-notify-send.exe
-      #     artifactContentType: application/octet-stream
-      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     releaseId: ${{ needs.create_release.outputs.id }}
+      #     args: 'wsl-notify-send.exe'
