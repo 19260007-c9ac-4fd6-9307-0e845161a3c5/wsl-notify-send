@@ -26,10 +26,13 @@ jobs:
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag: v0.1
           name: wsl_notify_send_0.1
           artifacts: wsl-notify-send.exe
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Upload the artifacts
       #   id: create_release
